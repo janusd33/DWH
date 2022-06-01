@@ -15,7 +15,7 @@ import math
 
 
 n=10000
-filename="cube"
+filename="JC-202203-citibike-tripdata"
 
 
 # In[104]:
@@ -37,7 +37,8 @@ def users(n):
 
 
 def join(filename):
-    data=pd.read_csv(f"{filename}.csv")
+    data=pd.read_csv(f"{filename}.csv", sep=";")
+    data = data.set_index("ride_id")
     x=len(data)
     column=[0 for i in range(x)]
     for i in range(x):
@@ -49,7 +50,5 @@ def join(filename):
 
 # In[106]:
 
-
 users(n)
 join(filename)
-
